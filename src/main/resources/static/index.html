@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="salaryCalculator" lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="salaryCalculator/app.js"></script>
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Salary Calculator</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
 </head>
-<body>
-$END$
+<body ng-controller="salaryCalculatorCtrl">
+    <div>
+        <div class="sectionMargin countryPicker">
+            <label>
+                Pick Country:
+                <select ng-model="selectedCountry" ng-options="country as country.country for country in countries"
+                        ng-init="getCountries()"></select>
+            </label>
+        </div>
+        <div class="sectionMargin salaryPicker">
+            <label>Daily salary:
+                <input ng-model="dailySalary" type="number" ng-init="dailySalary=0"><label>{{selectedCountry.currency}}</label>
+            </label>
+        </div>
+        <div class="sectionMargin">
+            <button class="calculateButton" ng-click="onCalculateClick()">Calculate salary</button>
+        </div>
+        <div class="sectionMargin" ng-if="shouldDisplayResult()">
+            <label>Monthly salary after fixed costs and taxes: <b>{{calculatedResult}} PLN</b></label>
+        </div>
+    </div>
 </body>
 </html>

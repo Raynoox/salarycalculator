@@ -1,0 +1,68 @@
+body{
+    width: 100%;
+    margin-top: 5%;
+}
+.countryPicker, .salaryPicker {
+    margin: 10px;
+}
+.countryPicker select{
+    background: antiquewhite;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: solid 1px #c9c9c9;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+
+}
+.salaryPicker input{
+    background: antiquewhite;
+    padding: 10px;
+    border: solid 1px #c9c9c9;
+    transition: border 0.3s;
+    margin-right: 20px;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.calculateButton {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    text-align:center;
+}
+
+.calculateButton:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+.calculateButton:focus{
+    outline:0;
+}
+.sectionMargin  {
+    text-align:center;
+    margin: 10px;
+    width: 100%;
+}
+.sectionMargin label{
+    font-size: larger;
+    font-family: sans-serif;
+}

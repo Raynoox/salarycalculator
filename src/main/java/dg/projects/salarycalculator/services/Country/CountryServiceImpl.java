@@ -1,17 +1,14 @@
-package dg.projects.salarycalculator.services;
+package dg.projects.salarycalculator.services.Country;
 
 import dg.projects.salarycalculator.dao.CountryDao;
 import dg.projects.salarycalculator.models.Country;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Optional;
 
 @Service
-@Scope("singleton")
 public class CountryServiceImpl implements CountryService {
 
     private final CountryDao dao;
@@ -21,11 +18,12 @@ public class CountryServiceImpl implements CountryService {
         this.dao = dao;
     }
 
-    private static <K, U> Collector<AbstractMap.SimpleEntry<K, U>, ?, Map<K, U>> entriesToMap() {
-        return Collectors.toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue);
-    }
     @Override
     public List<Country> getCountries() {
         return dao.findAll();
+    }
+
+    public Optional<Country> getCountryByName(String countryName) {
+        return dao.findByName(countryName);
     }
 }
