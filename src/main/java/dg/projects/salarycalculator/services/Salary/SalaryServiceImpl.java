@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Optional;
 
 @Service
 public class SalaryServiceImpl extends AbstractSalaryService {
@@ -50,7 +49,7 @@ public class SalaryServiceImpl extends AbstractSalaryService {
     @Override
     protected CalculateSalaryDTO exchangeMoney(CalculateSalaryDTO dto) {
         if(shouldExchange(dto)) {
-            Optional<RateDTO> rate = exchangeRates.getExchangeRate(dto.getCountry().getCurrency());
+            RateDTO rate = exchangeRates.getExchangeRate(dto.getCountry().getCurrency());
             dto.setSalary(getExchangedMoney(dto, rate));
         }
         return roundSalary(dto);
@@ -65,7 +64,7 @@ public class SalaryServiceImpl extends AbstractSalaryService {
     private boolean shouldExchange(CalculateSalaryDTO dto) {
         return !CurrencyEnum.PLN.equals(dto.getCountry().getCurrency());
     }
-    private Double getExchangedMoney(CalculateSalaryDTO dto, Optional<RateDTO> rate) {
-        return dto.getSalary()*rate.orElseThrow(RateNotFoundException::new).getMid();
+    private Double getExchangedMoney(CalculateSalaryDTO dto, RateDTO rate) {
+        return dto.getSalary()*rate.getMid();
     }
 }

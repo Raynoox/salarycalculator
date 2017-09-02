@@ -1,11 +1,9 @@
-package dg.projects.salarycalculator.services;
+package dg.projects.salarycalculator.services.ExchangeRates;
 
 import dg.projects.salarycalculator.dto.RateDTO;
 import dg.projects.salarycalculator.enums.CurrencyEnum;
 
-import java.util.Optional;
-
 
 public interface ExchangeRates {
-    Optional<RateDTO> getExchangeRate(CurrencyEnum currency);
+    RateDTO getExchangeRate(CurrencyEnum currency);
 }
